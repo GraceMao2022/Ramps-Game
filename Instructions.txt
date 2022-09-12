@@ -1,0 +1,110 @@
+Basics:
+1. Use your knowledge of physics to calculate how far you 
+think the block will go on the flat surface. 
+
+2. You will see given values at the top-left corner of 
+the screen. Use them to calculate the distance the block 
+will travel on the ground.
+
+3. Set down your mark on the flat ground to the right of 
+the ramp. Once you have done that, press "Start 
+Simulation" to start the simulation.
+
+Note: Assume there is no upward force acting on the block
+when it hits the ground. Also assume that static friction
+is equal to kinetic friction.
+BasicsInstruEnd
+
+How To Win:
+The distance will be calculated between where you 
+marked and where the block ends (where does the 
+middle of the block end). A score will be calculated 
+based on that. 
+
+If you get 90 points or more, you win! If not, try 
+harder next time and look at the explanation provided.
+HowToWinInstruEnd
+
+PhyInfo:
+You can resolve the force of gravity into two forces: one parallel 
+to the ramp (we will call parGForce) and one perpendicular to the ramp
+(we will call perGForce), as shown by the image above.
+
+Using trigonometry, you find out that (as shown above):
+parGForce = m*g*sin(@)
+perGForce = m*g*cos(@)
+where m = mass of block, g = force of gravity on Earth, and
+@ = angle formed by ramp and ground
++++++
+1) Find cos@ and sin@
+	Since slope = tan@, and tan^2(@)+1 = sec^2(@), you get
+	slope^2+1 = sec@. If you continue solving for cos@, you will get 
+	cos@ = 1/sqrt(slope^2+1).
+	
+	Since tan@ = sin@/cos@, you get sin@ = tan@*cos@, which is
+	sin@ = slope*cos@.
+	
+2) Find the forces on the ramp
+	We know that:
+	perGForce = m*g*sin@
+	parGForce = m*g*cos@
+	
+	Also the NForce, or force that goes opposite of the perGForce is
+	equal to the perGForce
+	NForce = perGForce 
+	
+	The friction acting on the block when it's moving is 
+	friction = NForce*frictCoef (friction coefficient)
+	
+3) Find the acceleration on the ramp
+	Acceleration on the ramp (acce_Ramp) is:
+	acce_Ramp = (parForce - friction)/m
+	
+4) Find the total time on the ramp
+	timeOnRamp = sqrt(2*lengthOfRamp/acce_Ramp)
+------	
+5) Find the forces on the ground
+	When the block is on the ground, the force of gravity directly
+	acts perpendicular to the block. Therefore:
+	perForce = m*g
+	And there is no parForce.
+	
+	Same as when the block was on the ramp,
+	NForce = perForce
+	friction_Ground = NForce*frictCoef
+	
+6) Find the acceleration on the ground
+	Acceleration on the ground (acce_Ground) is:
+	acce_Ground = -friction/m
+	
+7) Get the initial speed once the block hits the ground
+	The initial speed is:
+	initialSpeedOnGround = acce_Ramp * timeOnRamp
+	
+8) Find total time on the ground
+	timeOnGround = -initialSpeedOnGround/acce_Ground
+	
+9) Find distance traveled on ground
+	distance = -0.5*acce_Ground*timeOnGround^2
+PhyInfoEnd
+
+SettInstru
+- You can change the settings to your preferable username, mass
+of the block, range of the slope, range of the friction 
+coefficient, and color of the ramp and block
+
+- You need 1000 points to unlock a color for the ramp or
+block. Points are earned through game play.
+
+- The minimum the slope can be is -5.6, and the maximum it can be
+is -0.5. You won't be allowed to set anything outside of this range.
+This is to prevent the block from stopping on the ramp or going off the 
+screen.
+
+- The minimum the friction coefficient can be is 0.18, and the maximum 
+it can be is 0.4. You won't be allowed to set anything outside of this 
+range. This is to prevent the block from stopping on the ramp or going 
+off the screen.
+
+- Please press "ENTER" when you change your username to save it
+SettInstruEnd

@@ -1,0 +1,11 @@
+Username:_vaneer
+Mass:_50
+Slope Max:_-0.5
+Slope Min:_-3.0000000000000004
+Frict Coef Max:_0.4
+Frict Coef Min:_0.19999999999999998
+Ramp Color:_Green
+Block Color:_Red
+Total Score:_1067
+Num of Rp Color:_3
+Num of Blck Color:_3
